@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Telegram-inspired dark theme */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 200 100% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 222 47% 22%;
+    --input: 222 47% 18%;
+    --ring: 200 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Telegram colors */
+    --tg-theme-bg: 222 47% 11%;
+    --tg-theme-secondary: 222 47% 16%;
+    --tg-theme-hint: 215 20% 55%;
+    --tg-theme-link: 200 100% 50%;
+    --tg-theme-button: 200 100% 50%;
+    --tg-theme-button-text: 0 0% 100%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 22%;
+    --sidebar-ring: 200 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .tg-card {
+    @apply bg-card rounded-xl border border-border/50 p-4 transition-all duration-200;
+  }
+
+  .tg-card-interactive {
+    @apply tg-card hover:bg-secondary/50 active:scale-[0.98] cursor-pointer;
+  }
+
+  .tg-button {
+    @apply bg-primary text-primary-foreground font-semibold px-4 py-3 rounded-xl transition-all duration-200 hover:brightness-110 active:scale-[0.98];
+  }
+
+  .tg-button-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium px-4 py-3 rounded-xl transition-all duration-200 hover:bg-secondary/80 active:scale-[0.98];
+  }
+
+  .tg-input {
+    @apply bg-input border-0 rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/50 transition-all;
+  }
+
+  .tg-nav-item {
+    @apply flex flex-col items-center gap-1 py-2 px-3 rounded-xl transition-all duration-200 text-muted-foreground;
+  }
+
+  .tg-nav-item-active {
+    @apply tg-nav-item text-primary bg-primary/10;
+  }
+
+  .stat-card {
+    @apply bg-gradient-to-br from-card to-secondary/50 rounded-2xl p-4 border border-border/30;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-success {
+    @apply status-badge bg-success/20 text-success;
+  }
+
+  .status-warning {
+    @apply status-badge bg-warning/20 text-warning;
+  }
+
+  .status-pending {
+    @apply status-badge bg-muted text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
