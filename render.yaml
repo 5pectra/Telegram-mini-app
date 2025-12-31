@@ -2,10 +2,14 @@ services:
   - type: web
     name: merch-app
     env: node
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: |
+      npm install --legacy-peer-deps
+      npx vite build
+    startCommand: node server.js
     envVars:
       - key: PORT
         value: 10000
+      - key: NODE_VERSION
+        value: 18.20.4
     autoDeploy: true
     healthCheckPath: /
