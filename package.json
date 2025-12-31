@@ -5,18 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "vercel-build": "vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "build": "tsc --noEmit && npx vite build",
+    "vercel-build": "npx vite build",
+    "lint": "npx eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "npx vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -a",
-    "start": "node server.js"
+    "deploy": "npx gh-pages -d dist -a",
+    "start": "node server.js",
+    "render-build": "npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "express": "^4.19.2",
-    "compression": "^1.7.4",
-    "helmet": "^7.1.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -86,9 +85,5 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
   }
 }
